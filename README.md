@@ -6,7 +6,7 @@
 
 This package contains source code for baseline classification, Grad-CAM analysis, ray-based masking experiments, bootstrap confidence-interval estimation, and sensitivity analyses of checkpoint selection and data partitioning. The custom quantitative measurement tool is provided separately as Supplementary Code 1.
 
-This archive contains source code, runnable workflow scripts, and a checkpoint-layout guide. Trained model weights are omitted because of file-size constraints; after publication, they can be downloaded from the public GitHub repository and placed under `./weights/` as described in [`weights/CHECKPOINTS_README.md`](./weights/CHECKPOINTS_README.md).
+This archive contains source code, runnable workflow scripts, and a checkpoint-layout guide. Trained model weights are distributed separately as GitHub Release assets because of their size. Download the required archives from the repository's [Releases page](https://github.com/hyunseo924/explainable-hand-radiograph-ai/releases), extract them from the repository root, and retain the included `weights/` directory structure as described in [`weights/CHECKPOINTS_README.md`](./weights/CHECKPOINTS_README.md).
 
 The original radiographs and patient-level data are not included in this archive and will not be deposited in the public repository.
 
@@ -49,6 +49,17 @@ Supplementary_Code_2/
 ```
 
 The `weights/` directory contains only [`weights/CHECKPOINTS_README.md`](./weights/CHECKPOINTS_README.md), which documents where downloaded checkpoints should be placed; trained parameter files are not included.
+
+## Downloading trained weights
+
+The release assets are split by workflow to keep each download manageable. Download only the archives needed for the intended analysis from the [GitHub Releases page](https://github.com/hyunseo924/explainable-hand-radiograph-ai/releases). From the repository root, extract each selected archive without changing its internal paths:
+
+```bash
+unzip baseline_resnet50_weights.zip
+unzip baseline_other_weights.zip
+```
+
+For the full workflow, also extract `ablation_selective_weights.zip`, `ablation_selected_weights.zip`, `medsam_metacarpal_weights.zip`, `medsam_phalanx_weights.zip`, and `yolo_weights.zip`. Each archive expands beneath `./weights/`; its filenames and expected locations are listed in [`weights/CHECKPOINTS_README.md`](./weights/CHECKPOINTS_README.md).
 
 ## Software environment
 
