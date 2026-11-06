@@ -1,6 +1,6 @@
-# Supplementary Code 2: Model Development and Image Analysis Workflow
+# Explainable deep learning localizes age-discriminative candidate regions on hand radiographs of adult women
 
-**Manuscript title:** *Explainable deep learning localizes age-discriminative candidate regions on hand radiographs of adult women*
+*Supplementary Code 2: Model Development and Image Analysis Workflow*
 
 ## Overview
 
