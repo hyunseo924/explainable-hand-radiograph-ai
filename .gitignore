@@ -1,0 +1,15 @@
+# Local configuration, data, generated outputs, and trained parameters
+configs/paths.env
+data/
+outputs/
+
+# Trained model weights
+weights/**/*.pth
+weights/**/*.pt
+weights/**/*.ckpt
+weights/**/*.onnx
+weights/**/*.bin
+
+# Python cache files
+__pycache__/
+*.py[cod]
