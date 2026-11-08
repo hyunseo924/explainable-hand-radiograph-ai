@@ -8,6 +8,12 @@ mkdir -p "${BASELINE_CHECKPOINT_DIR}"
 
 for model in resnet18 resnet50 densenet121 mobilenet_v3_large efficientnet_b0; do
     save_name="iter5_${model}_wd5e3_lr2e5_ep30_hf_thres_padded"
+    case "${model}" in
+        mobilenet_v3_large|efficientnet_b0)
+            # Retain the checkpoint names used by the released five-seed models.
+            save_name="${model}"
+            ;;
+    esac
     echo "===== baseline training: ${model} ====="
     "${PYTHON_BIN}" ./src/train/run_multi_seed.py \
         --model_name "${model}" \

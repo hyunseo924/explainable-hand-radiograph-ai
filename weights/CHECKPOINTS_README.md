@@ -1,6 +1,13 @@
 # Checkpoint layout
 
-This directory documents the expected local layout for model parameters. Trained weights are omitted from the code archive because of file-size constraints and can be downloaded from the public GitHub repository after publication. The shell scripts also work when the corresponding paths in `./configs/paths.env` point elsewhere.
+This directory documents the expected local layout for model parameters. Download the required checkpoint archives from the [GitHub Release page](https://github.com/hyunseo924/explainable-hand-radiograph-ai/releases/tag/weights-v1.0.0), then extract them from the repository root so that their internal `weights/` paths are preserved:
+
+```bash
+unzip /path/to/baseline_resnet50_weights.zip
+unzip /path/to/baseline_other_weights.zip
+```
+
+`baseline_resnet50_weights.zip` and `baseline_other_weights.zip` contain the baseline checkpoints (the latter also includes the laterality model). The other release assets are `ablation_selective_weights.zip`, `ablation_selected_weights.zip`, `medsam_metacarpal_weights.zip`, `medsam_phalanx_weights.zip`, and `yolo_weights.zip`; extract only the archives needed for the workflow. The shell scripts also work when the corresponding paths in `./configs/paths.env` point elsewhere.
 
 ```text
 weights/

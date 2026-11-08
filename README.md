@@ -218,7 +218,7 @@ Training code is in [`src/train/`](./src/train/), fixed-split and fold-level che
 ```bash
 python ./src/inference/inference.py \
   --model_name densenet121 \
-  --model_path './weights/baseline/densenet121/best_iter5_densenet121_*_padded_seed*.pth' \
+  --model_path ./weights/baseline/densenet121 \
   --data_root ./data/classification \
   --removal ./data/Removal.csv \
   --resize_mode padded --region densenet121_primary \
