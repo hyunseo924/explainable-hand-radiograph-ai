@@ -197,8 +197,8 @@ def save_combined_plots(val_data, test_data, save_dir, save_name, csv_path):
     fig, axes = plt.subplots(2, 2, figsize=(16, 12))
     
     v_probs, v_labels = val_data['probs'], val_data['labels']
-    axes[0, 0].hist(v_probs[v_labels == 0], bins=30, histtype='step', linewidth=2.5, label='GT: Class 0 (Pre-menopause)', color='dodgerblue')
-    axes[0, 0].hist(v_probs[v_labels == 1], bins=30, histtype='step', linewidth=2.5, label='GT: Class 1 (Post-menopause)', color='tomato')
+    axes[0, 0].hist(v_probs[v_labels == 0], bins=30, histtype='step', linewidth=2.5, label='GT: Class 0 (Younger adult group)', color='dodgerblue')
+    axes[0, 0].hist(v_probs[v_labels == 1], bins=30, histtype='step', linewidth=2.5, label='GT: Class 1 (Older adult group)', color='tomato')
     axes[0, 0].hist(v_probs[v_labels == 0], bins=30, histtype='stepfilled', alpha=0.1, color='dodgerblue')
     axes[0, 0].hist(v_probs[v_labels == 1], bins=30, histtype='stepfilled', alpha=0.1, color='tomato')
     axes[0, 0].set_title('Predicted Probability Distribution (Class 1 - VAL)', fontsize=14)
@@ -209,8 +209,8 @@ def save_combined_plots(val_data, test_data, save_dir, save_name, csv_path):
     axes[0, 0].grid(True, alpha=0.3)
     
     t_probs, t_labels = test_data['probs'], test_data['labels']
-    axes[0, 1].hist(t_probs[t_labels == 0], bins=30, histtype='step', linewidth=2.5, label='GT: Class 0 (Pre-menopause)', color='dodgerblue')
-    axes[0, 1].hist(t_probs[t_labels == 1], bins=30, histtype='step', linewidth=2.5, label='GT: Class 1 (Post-menopause)', color='tomato')
+    axes[0, 1].hist(t_probs[t_labels == 0], bins=30, histtype='step', linewidth=2.5, label='GT: Class 0 (Younger adult group)', color='dodgerblue')
+    axes[0, 1].hist(t_probs[t_labels == 1], bins=30, histtype='step', linewidth=2.5, label='GT: Class 1 (Older adult group)', color='tomato')
     axes[0, 1].hist(t_probs[t_labels == 0], bins=30, histtype='stepfilled', alpha=0.1, color='dodgerblue')
     axes[0, 1].hist(t_probs[t_labels == 1], bins=30, histtype='stepfilled', alpha=0.1, color='tomato')
     axes[0, 1].set_title('Predicted Probability Distribution (Class 1 - TEST)', fontsize=14)
