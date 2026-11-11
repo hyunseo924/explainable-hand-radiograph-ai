@@ -178,8 +178,9 @@ class HandXrayDataset(Dataset):
             label = torch.tensor(int(row["label"]), dtype=torch.long)
             return img, label
         except Exception as e:
-            print(f"Error loading image {row['image_path']}: {e}")
-            return self.__getitem__(0)
+            raise RuntimeError(
+                f"Failed to load or preprocess image: {row['image_path']}"
+            ) from e
 
 def run_training(args,split_seed=42):
 

@@ -163,8 +163,9 @@ class HandXrayDataset(Dataset):
             label = torch.tensor(int(row["label"]), dtype=torch.long)
             return img, label, img_id
         except Exception as e:
-            print(f"Error loading image {row['image_path']}: {e}")
-            return self.__getitem__(0)
+            raise RuntimeError(
+                f"Failed to load or preprocess image: {row['image_path']}"
+            ) from e
 
 def calc_ece(probs, preds, labels, num_bins=10):
     probs, preds, labels = np.array(probs), np.array(preds), np.array(labels)
@@ -339,8 +340,7 @@ if __name__ == "__main__":
                 model.load_state_dict(checkpoint)
                 optimal_threshold = 0.5
         except Exception as e:
-            print(f"[!] fail to load checkpoint: {e}")
-            continue
+            raise RuntimeError(f"Failed to load checkpoint: {w_path}") from e
     
         val_res = evaluate_single_model(model, val_loader, DEVICE, optimal_threshold)
         test_res = evaluate_single_model(model, test_loader, DEVICE, optimal_threshold)
